@@ -15,15 +15,15 @@
 - [kintsugi-stack-competitive-programming](#kintsugi-stack-competitive-programming)
   - [Table of Contents](#table-of-contents)
 - [R800](#r800)
-  - [01 A Halloumi Boxes](#01-a-halloumi-boxes)
-  - [02 A Line Trip](#02-a-line-trip)
-  - [03 A Cover in Water](#03-a-cover-in-water)
-  - [04 A Game with Integers](#04-a-game-with-integers)
-  - [05 A Jagged Swaps](#05-a-jagged-swaps)
-  - [06 A Doremy's Paint 3](#06-a-doremys-paint-3)
-  - [07 A Don't Try to Count](#07-a-dont-try-to-count)
-  - [08 A How Much Does Daytona Cost?](#08-a-how-much-does-daytona-cost)
-  - [09 Goals of Victory](#09-goals-of-victory)
+  - [1 A Halloumi Boxes](#1-a-halloumi-boxes)
+  - [2 A Line Trip](#2-a-line-trip)
+  - [3 A Cover in Water](#3-a-cover-in-water)
+  - [4 A Game with Integers](#4-a-game-with-integers)
+  - [5 A Jagged Swaps](#5-a-jagged-swaps)
+  - [6 A Doremy's Paint 3](#6-a-doremys-paint-3)
+  - [7 A Don't Try to Count](#7-a-dont-try-to-count)
+  - [8 A How Much Does Daytona Cost?](#8-a-how-much-does-daytona-cost)
+  - [9 Goals of Victory](#9-goals-of-victory)
   - [10 Target Practice](#10-target-practice)
   - [11 Ambitious Kid](#11-ambitious-kid)
   - [12 Sequence Game](#12-sequence-game)
@@ -33,7 +33,7 @@
 
 # R800
 
-## 01 A Halloumi Boxes
+## 1 A Halloumi Boxes
 - https://codeforces.com/problemset/problem/1903/A
 - brute force, greedy, sortings, *800
 - Analysis
@@ -118,7 +118,7 @@ int main(){
 // sc O(n)
 ```
 
-## 02 A Line Trip
+## 2 A Line Trip
 - https://codeforces.com/problemset/problem/1901/A
 - greedy, math, *800
 - Analysis
@@ -209,7 +209,7 @@ int main(){
 ```
 - my code is more optimal than tut ;0
 
-## 03 A Cover in Water
+## 3 A Cover in Water
 - https://codeforces.com/problemset/problem/1900/A
 - constructive algorithms, greedy, implementation, strings, *800
 - Analysis
@@ -318,7 +318,7 @@ int main(){
 // SC O(n)
 ```
 
-## 04 A Game with Integers
+## 4 A Game with Integers
 - https://codeforces.com/problemset/problem/1899/A
 - games, math, number theory, *800
 - Analysis
@@ -402,7 +402,7 @@ int main(){
 // SC O(1)
 ```
 
-## 05 A Jagged Swaps
+## 5 A Jagged Swaps
 - https://codeforces.com/problemset/problem/1896/A
 - sortings, *800
 - Analysis
@@ -529,7 +529,7 @@ int main(){
 }
 ```
 
-## 06 A Doremy's Paint 3
+## 6 A Doremy's Paint 3
 - https://codeforces.com/problemset/problem/1890/A
 - constructive algorithms, *800
 - Analysis
@@ -712,7 +712,7 @@ int main(){
     return 0;
 }
 ```
-## 07 A Don't Try to Count
+## 7 A Don't Try to Count
 - https://codeforces.com/problemset/problem/1881/A
 - brute force, strings, *800
 - Analysis
@@ -857,7 +857,7 @@ int main(){
 // Time Complexity: O(n * m)
 // Space Complexity: O(n + m) (worst case 32n + m).
 ```
-## 08 A How Much Does Daytona Cost?
+## 8 A How Much Does Daytona Cost?
 - https://codeforces.com/problemset/problem/1878/A
 - greedy, *800
 - Analysis
@@ -954,7 +954,7 @@ int main(){
     return 0;
 }
 ```
-## 09 Goals of Victory
+## 9 Goals of Victory
 - https://codeforces.com/problemset/problem/1877/A
 - math, *800
 - Analysis
