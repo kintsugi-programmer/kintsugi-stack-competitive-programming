@@ -11,6 +11,14 @@
 - https://codeforces.com/profile/kintsugi-programmer
 - https://www.tle-eliminators.com/cp-sheet
 
+```cpp
+➜  kintsugi-stack-competitive-programming git:(main) ✗ g++-15 -std=c++17 -O2 rough.cpp -o main && ./main
+➜  kintsugi-stack-competitive-programming git:(main) ✗ alias gpp="g++-15 -std=c++17 -O2"
+➜  kintsugi-stack-competitive-programming git:(main) ✗ gpp rough.cpp -o main && ./main
+Hello World!
+➜  kintsugi-stack-competitive-programming git:(main) ✗ 
+```
+
 ## Table of Contents
 - [kintsugi-stack-competitive-programming](#kintsugi-stack-competitive-programming)
   - [Table of Contents](#table-of-contents)
@@ -27,6 +35,7 @@
   - [10 Target Practice](#10-target-practice)
   - [11 Ambitious Kid](#11-ambitious-kid)
   - [12 Sequence Game](#12-sequence-game)
+  - [13 United We Stand](#13-united-we-stand)
 - [TipsCollectedFromExperiences](#tipscollectedfromexperiences)
 - [Array Coloring \[ONSIGHT\]](#array-coloring-onsight)
 
@@ -49,6 +58,8 @@
   - Find if it's possible to sort the boxes using any number of reverses.
   - So, if K>=2 ,Machine's sort is 100%possible at `any number of reverses` `ANY_TIMES`
     - if k=2 atleast => i have power to shift any element anywhere 
+    - As, at K=2, `a,b` changes to `b,a`
+    - **Techincally Reverse of k =2 is a `SWAP FUNCTION`, fundamental of sorting algos**
   - eg: 
     - 6421
       - 6421 rev 2 nos sub array my initial thought
@@ -1713,6 +1724,173 @@ int main()
 // Space Complexity (SC): O(n) = O(2*10^5)
 ```
 
+## 13 United We Stand
+- constructive algorithms, math, number theory *800
+- Analysis
+  - tc 
+    - tlpt 1sec
+    - mlpt 256mb
+    - 1sec = 10^8 ops
+    - ops per testcase = 10^8 / 1 = 10^8
+    - total minitests = 500 ?
+    - tlpmt = 10^6 ops ?
+    - N = 10^5 ?
+  - arr a
+    - len n
+    - datatype int
+  - initialize
+    - arr a 
+    - empty arr b
+    - empty arr c
+  - task
+    - each element of a 
+      - transfer to b or c
+      - satisfy these conditions
+        - len b >=1, lenc>=1
+        - for any 2 indices i & j
+          - 1 <= i <= len b
+          - 1 <= j <= len c
+          - bi % cj != 0
+  - output
+    - if possible: array b & c
+      - lenb lenc
+      - b1 b2 ..
+      - c1 c2 ..
+    - if not: -1
+    - if multiple solutions, output any of them
+  - input
+    - t 1<=t<=500 minitest
+    - n 2<=n<=100 arr a len
+    - a1 a2 .. an 1<=ai<=10^9 element of arr a
+
+```
+5 # mt
+
+3 #1
+2 2 2
+
+5 #2
+1 2 3 4 5
+
+3 #3
+1 3 5
+
+7 #4
+1 7 7 2 9 1 4
+
+5 #5
+4 8 12 12 4
+
+
+-1 #1 sol dont exist
+
+3 2 #2 
+1 3 5 
+2 4 
+
+1 2 #3
+1 
+3 5 
+
+2 5 #4
+1 1 
+2 4 7 7 9 
+
+3 2 #5
+4 8 4 
+12 12 
+
+```
+- Approach 1
+  - thought: what is divisibility
+    - a is div to b if a%b = 0
+    - Right
+  - thought: so bi % ci !=0 is condition check at any cost
+    - Right
+  - thought: 
+    - Odd numbers can NEVER be divisible by any even number (except 1 case: 1 itself)
+    - so just let arr b have odd nums, arr c have even nums (like in 2nd)
+    - else, make b and c both odds if even doesnt exist(like 3)
+    - else, at even all, make arr b each element smaller than c (like 5th)
+    - else, at even all int, then -1 (like 1)
+    - 1 2 3 4 5 tests pass in thinking
+    - Right
+  - WRONG, Full of Bug Spiral,  Usually there’s a simple greedy observation, not heavy logic.
+```cpp
+// Wrong Approach
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <stack>
+#include <deque>
+#include <string>
+#include <cstring>
+#include <climits>
+#include <numeric>
+#include <iomanip>
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        // vector<int> a(n, 0);
+        vector<int>odd, even;
+        for(int i = 0; i < n; i++){
+            // cin >> a[i];
+            int o;
+            cin >> o;
+            if (o % 2 == 0){
+                even.push_back(o);
+            } else {
+                odd.push_back(o);
+            }
+        if (even.size()>=1 and odd.size()==0 and (*max_element(even.begin(),even.end()) == (*min_element(even.begin(),even.end()))))
+        {
+            /* code */
+            cout<<-1;
+            cout<<endl;
+        }
+        else if (odd.size()>=1 and even.size()>=1){
+            cout << odd.size() <<" "<< even.size() << endl;
+            for(int i = 0; i < odd.size() ; i++){cout<<odd[i]<<" ";}
+            cout<<endl;
+            for(int i = 0; i < even.size() ; i++){cout<<even[i]<<" ";}
+            cout<<endl;
+        }
+        else if (odd.size()>=1 and even.size()==0){
+            cout<<1<<" "<<odd.size()-1<<endl;
+            cout<<odd[0];
+            for(int i = 1; i < odd.size() ; i++){cout<<odd[i]<<" ";}
+            cout<<endl;
+        }
+        else if (even.size()>=1 and odd.size()==0 and (*max_element(even.begin(),even.end()) > (*min_element(even.begin(),even.end()))))
+        {
+            /* code */
+            sort(even.begin(), even.end());
+            int cntbig = count(even.begin(), even.end(), even.back()); // arr.back()
+            cout<<even.size()- cntbig<<" " <<cntbig<<endl; 
+            for(int i = 0; i < even.size()- cntbig ; i++){cout<<even[i]<<" ";}
+            cout<<endl;
+            for(int i=0; i<cntbig; i++){cout<<even.back()<<" ";}
+            cout<<endl;
+        }
+    }
+}
+    return 0;
+}
+```
+
 # TipsCollectedFromExperiences
 
 - Read Question and Analyse it Bit-by-bit
@@ -1919,6 +2097,121 @@ long long freq2 = freq_map.rbegin()->second;
 ```cpp
     long long min_ops = INT_MAX;
     for ( int i=0; i< n; i++){min_ops=min(min_ops,abs(a[i]));} //n
+```
+- 13R800, template ?
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <stack>
+#include <deque>
+#include <string>
+#include <cstring>
+#include <climits>
+#include <numeric>
+#include <iomanip>
+using namespace std;
+
+// 🔥 Fast IO
+#define fastio() ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+
+// 🔥 Begin, End, Size
+#define all(x) (x).begin(), (x).end()
+#define sz(x) (int)(x).size()
+
+// 🔥 Typedefs
+typedef long long ll;
+typedef unsigned long long ull;
+typedef long double lld;
+
+// 🔥 Shortcuts
+#define pb push_back
+#define ppb pop_back
+#define mp make_pair
+#define ff first
+#define ss second
+
+// 🔥 Containers
+#define vi vector<int>
+#define vll vector<ll>
+#define pii pair<int, int>
+#define pll pair<ll, ll>
+#define vpi vector<pair<int,int>>
+
+// 🔥 Loops
+#define rep(i,a,b) for(int i=a;i<b;i++)
+#define rrep(i,a,b) for(int i=a;i>=b;i--)
+
+// 🔥 Debug (remove in contest if needed)
+#ifndef ONLINE_JUDGE
+#define debug(x) cerr << #x << " = " << x << endl;
+#else
+#define debug(x)
+#endif
+
+// 🔥 Constants
+const int MOD = 1e9 + 7;
+const ll INF = 1e18;
+
+// 🔥 Utility Functions
+ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
+ll lcm(ll a, ll b) { return (a / gcd(a, b)) * b; }
+
+// Fast exponentiation
+ll power(ll a, ll b) {
+    ll res = 1;
+    while (b) {
+        if (b & 1) res *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return res;
+}
+
+// Modular exponentiation
+ll mod_pow(ll a, ll b, ll mod) {
+    ll res = 1;
+    a %= mod;
+    while (b) {
+        if (b & 1) res = (res * a) % mod;
+        a = (a * a) % mod;
+        b >>= 1;
+    }
+    return res;
+}
+
+// 🔥 Solve function
+void solve() {
+    int n;
+    cin >> n;
+
+    vi a(n);
+    for (int &x : a) cin >> x;
+
+    sort(a.begin(), a.end());
+
+    for (int x : a) cout << x << " ";
+    cout << "\n";
+}
+
+// 🔥 Main
+int main() {
+    fastio();
+
+    int t = 1;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
 ```
 
 # Array Coloring [ONSIGHT]
