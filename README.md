@@ -11,6 +11,8 @@
 - https://codeforces.com/profile/kintsugi-programmer
 - https://www.tle-eliminators.com/cp-sheet
 
+> feat: pause CP, boost real-world engineering XP
+
 ```cpp
 ➜  kintsugi-stack-competitive-programming git:(main) ✗ g++-15 -std=c++17 -O2 rough.cpp -o main && ./main
 ➜  kintsugi-stack-competitive-programming git:(main) ✗ alias gpp="g++-15 -std=c++17 -O2"
