@@ -1,5 +1,6 @@
 # kintsugi-stack-competitive-programming
 
+{pause}
 > “Talk is cheap. Show me the time complexity.”
 
 - Author: [Kintsugi-Programmer](https://github.com/kintsugi-programmer)
